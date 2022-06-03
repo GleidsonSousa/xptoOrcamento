@@ -3,4 +3,6 @@
     <fullyQualifiedTypeName name="modelos.Orcamento"/>
     <fullyQualifiedTypeName name="models.Orcamento"/>
     <fullyQualifiedTypeName name="dao.OrcamentoDAO"/>
+    <fullyQualifiedTypeName name="java.awt.event.MouseAdapter"/>
+    <fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
 </qualifiedTypeNameHistroy>

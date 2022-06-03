@@ -98,7 +98,15 @@ import models.Orcamento;
 		rolagem.setBounds(20, 310, 740, 230);
 		painel.add(rolagem);
 		
-		
+		table.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				int linha = table.getSelectedRow();
+				int id = Integer.parseInt(table.getValueAt(linha, 0).toString());
+				Orcamento orc = new Orcamento(id);
+				int indice = OrcamentoProcess.orcamentos.indexOf(orc);
+				preencheCampos(indice);
+			}
+		});
 
 
 		//Buttons
