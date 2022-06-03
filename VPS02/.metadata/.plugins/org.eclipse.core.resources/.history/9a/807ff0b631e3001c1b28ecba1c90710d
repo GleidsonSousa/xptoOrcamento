@@ -1,0 +1,27 @@
+package controllers;
+
+import java.util.ArrayList;
+
+import dao.OrcamentoDAO;
+import models.Orcamento;
+
+
+
+public class OrcamentoProcess{
+
+	public static ArrayList<Orcamento> orcamentos = new ArrayList<>();
+	private static OrcamentoDAO or = new OrcamentoDAO();
+	
+	public static void abrir() {
+		orcamentos = or.ler();
+		if(orcamentos.size() == 0) {
+			orcamentos.add(new Orcamento("1", "03/10/2021", "Miniagua", "300,00","30,00"));
+		}
+	}
+	
+	public static void salvar() {
+		or.escrever(orcamentos);
+	}
+
+	
+}
