@@ -23,7 +23,7 @@ import models.Orcamento;
 
 		private static final long serialVersionUID = 1L;
 		private JPanel painel;
-		private String imgIcon = "./VPS02/projeto/src/imgs/icone.jpg";
+		private String imgIco = "./imgs/icone.jpg";
 		private JLabel id, fornecedor, produto, preco;
 		private JTextField tfId, tfFornecedor, tfProduto,  tfPreco; 
 		private JScrollPane rolagem;
@@ -39,7 +39,6 @@ import models.Orcamento;
 			setTitle("Cadastro de Orçamentos");
 			setBounds(150, 170, 800, 600);
 		painel = new JPanel();
-		setIconImage(new ImageIcon(imgIcon).getImage());
 		painel.setBackground(new Color(200, 200, 100));
 		setContentPane(painel);
 		setLayout(null);

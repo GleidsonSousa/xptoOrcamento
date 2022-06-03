@@ -14,7 +14,7 @@ public class OrcamentoDAO {
 
 	private BufferedReader br;
 	private BufferedWriter bw;
-	private String path = ".//dados//produtos.csv";
+	private String path = "./dados/produtos.csv";
 	
 	public ArrayList<Orcamento> ler() {
 		ArrayList<Orcamento> linhas = new ArrayList<>();

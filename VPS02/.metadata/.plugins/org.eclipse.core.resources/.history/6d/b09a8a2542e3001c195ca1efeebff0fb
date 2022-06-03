@@ -23,7 +23,7 @@ import models.Orcamento;
 
 		private static final long serialVersionUID = 1L;
 		private JPanel painel;
-		private String imgIcon = "./VPS02/projeto/src/imgs/icone.jpg";
+		private String imgIcon = ".\VPS02\projeto\src\imgs\icone.jpg";
 		private JLabel id, fornecedor, produto, preco;
 		private JTextField tfId, tfFornecedor, tfProduto,  tfPreco; 
 		private JScrollPane rolagem;
