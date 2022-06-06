@@ -14,7 +14,7 @@ public class 	Orcamento {
 	private String fornecedor;
 	private String produto;
 	private double preco;
-	//private boolean maisBarato;
+	private boolean Compararprecos;
 	
 	private DecimalFormat df = new DecimalFormat("#.00");
 	private final Locale BRASIL = new Locale("pt", "BR");
@@ -24,13 +24,14 @@ public class 	Orcamento {
 		this.id = id;
 	}
 	
-	public Orcamento(String id, String fornecedor, String produto, String preco) {
+	public Orcamento(String id, String fornecedor, String produto, String preco, boolean Compararprecos ) {
 		df.setCurrency(Currency.getInstance(BRASIL));
 		try {
 			this.id = Integer.parseInt(id);
 			this.fornecedor = fornecedor;
 			this.produto = produto;
 			this.preco = Double.parseDouble(df.parse(preco).toString());
+			this.Compararprecos = Compararprecos;
 			
 		} catch (ParseException e) {
 			System.out.println(e);
@@ -43,11 +44,16 @@ public class 	Orcamento {
 	
 	public Orcamento(String linha) {	
 			try {
+				
 				df.setCurrency(Currency.getInstance(BRASIL));
+				
+				String[] opam = linha.split(";");
+				
 				this.id = Integer.parseInt(linha.split(";")[0]);
 			this.fornecedor = linha.split(";")[1];
 			this.produto= linha.split(";")[2];
 			this.preco = Double.parseDouble(df.parse(linha.split(";")[3]).toString());
+			this.Compararprecos = Boolean.parseBoolean(opam[4]);
 				
 			} catch (ParseException e) {
 				System.out.println(e);
@@ -95,10 +101,19 @@ public class 	Orcamento {
 		this.preco = preco;
 	}
 	
+	public boolean getMaisBarato() {
+		return Compararprecos;
+	}
+	public String getMaisBarato( String Compararprecos) {
+		return Compararprecos;
+	}
+
+	public void setMaisBarato(boolean Compararprecos) {
+		this.Compararprecos = Compararprecos;
+	}
 	
 	
 
-	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -119,16 +134,16 @@ public class 	Orcamento {
 	@Override
 	public String toString() {
 		return id + "\t" + fornecedor + "\t" + produto + "\t" + String.format("%.2f", preco) + "\t" 
-	+  "\t"+ "\n";
+	+getMaisBarato()+"\t"+"\t"+ "\n";
 	}
 
 	public String toCSV() {
 		return id + ";"+ fornecedor +";"+ produto+";"
-	+ String.format("%.2f", preco) +"\r\n";
+	+ String.format("%.2f", preco) +";"+ Compararprecos +"\r\n";
 	}
 
 	public String[] toVetor() {
-		return new String[] { getId(""), fornecedor, produto, getPreco("")};
+		return new String[] { getId(""), fornecedor, produto, getPreco(""),getMaisBarato("") };
 	}
 
 }
